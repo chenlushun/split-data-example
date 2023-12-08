@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.chenlushun.split.data.example.mapper.OrderMapper">
+    <select id="selectByOrderNo" resultType="com.chenlushun.split.data.example.entity.Order">
+        select *
+        from order
+        where order_no = #{orderNo}
+    </select>
+
+    <insert id="insertOrder">
+        insert into order (order_no, user_name, create_time, modify_time)
+        values (#{order.orderNo}, #{order.userName}, now(), now())
+    </insert>
+</mapper>
